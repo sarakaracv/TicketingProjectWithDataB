@@ -32,12 +32,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO findByUserName(String username) {
-        return null;
+        User user= userRepository.findByUserName(username);
+        return userMap.convertToDto(user);
     }
 
     @Override
     public void save(UserDTO user) {
-
+        userRepository.save(userMap.convertToEntity(user));
     }
 
     @Override
